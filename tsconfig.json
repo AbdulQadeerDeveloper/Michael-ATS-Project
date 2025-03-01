@@ -1,0 +1,42 @@
+{
+    "compilerOptions": {
+      "target": "ES6",
+      "lib": ["DOM", "DOM.Iterable", "ESNext"],
+      "module": "ESNext",
+      "moduleResolution": "node",
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["./src/*"]
+      },
+      "jsx": "react-jsx",
+      "strict": true,
+      "noImplicitAny": false,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": false,
+      "typeRoots": ["node_modules/@types", "./src/types"],
+      "types": ["node", "react", "react-dom"],
+      "outDir": "./dist/",
+      "rootDir": "./src/",
+      "allowJs": true,
+      "checkJs": false
+    },
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "src/**/*.js",
+      "src/**/*.jsx",
+      "types/**/*.d.ts"
+    ],
+    "exclude": [
+      "node_modules",
+      "dist",
+      "**/*.spec.ts",
+      "**/*.test.ts",
+      "**/*.stories.tsx"
+    ]
+  }
