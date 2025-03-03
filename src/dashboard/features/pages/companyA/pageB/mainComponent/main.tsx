@@ -5,7 +5,7 @@ import { Sidebar } from "@/dashboard/features/dashboard/sidebar/sidebar";
 import CompanyCard from "../../pageA/companyCard";
 import MainPageB from "./card";
 
-const DashboardPageB = () => {
+const DashboardB = () => {
   return (
     <div className="flex bg-[#F4F7FE] min-h-screen h-screen">
       <Sidebar />
@@ -19,4 +19,4 @@ const DashboardPageB = () => {
     </div>
   );
 };
-export default DashboardPageB;
+export default DashboardB;

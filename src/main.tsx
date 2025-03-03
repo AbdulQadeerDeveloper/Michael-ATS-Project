@@ -6,10 +6,9 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./store/index";
 import "./index.css";
 import MicrosoftLogin from "./dashboard/auth/component/microsoftLogin/werkbronAtsLogin";
-import Dashboard from "./dashboard/features/pages/companyA/pageA/mainPage/companyPage";
-import CompanyCards from './dashboard/features/pages/companyA/pageB/cardsComapny/cardMain/CompanyCards';
-import MainPageB from './dashboard/features/pages/companyA/pageB/mainComponent/card';
-import DashboardPageB from './dashboard/features/pages/companyA/pageB/mainComponent/main';
+import Dashboard from "./dashboard/features/dashboard/mainDashboard";
+import DashboardA from './dashboard/features/pages/companyA/pageA/mainPage/companyPage';
+import DashboardB from './dashboard/features/pages/companyA/pageB/mainComponent/main';
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <Provider store={store}>
@@ -17,7 +16,11 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <Router>
         <Routes>
           <Route path="/" element={<MicrosoftLogin />} />
-          <Route path="/dashboard" element={<DashboardPageB />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/general" element={<DashboardA />} />
+          <Route path="/agreementPrice" element={<DashboardB />} />
+          
+         
         </Routes>
       </Router>
     </PersistGate>

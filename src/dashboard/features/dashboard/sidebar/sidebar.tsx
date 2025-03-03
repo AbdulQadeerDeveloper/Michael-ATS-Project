@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, Briefcase, User, DollarSign, Mail, Settings } from "lucide-react";
 import { BsCalculator } from "react-icons/bs";
@@ -11,12 +12,6 @@ import companyLogo from "../../../../assets/Hofstead-logo-zwart-1 1.png";
 
 export const Sidebar = () => {
   const [expanded, setExpanded] = useState(false);
-  const [activeTab, setActiveTab] = useState(null);
-
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-    setExpanded(true); // Expand sidebar when any tab is clicked
-  };
 
   return (
     <div
@@ -41,39 +36,35 @@ export const Sidebar = () => {
 
       {/* Navigation */}
       <nav className="flex flex-col space-y-1 flex-grow w-full">
-        <SidebarItem icon={<HiOutlineViewGrid size={20} />} text="Dashboard" expanded={expanded} activeTab={activeTab} setActiveTab={handleTabClick} />
-        <SidebarItem icon={<BsCalculator size={20} />} text="Company" expanded={expanded} activeTab={activeTab} setActiveTab={handleTabClick} />
-        <SidebarItem icon={<Calendar size={20} />} text="Calendar" expanded={expanded} activeTab={activeTab} setActiveTab={handleTabClick} />
-        <SidebarItem icon={<IoMdBriefcase size={20} />} text="Vacancy" expanded={expanded} activeTab={activeTab} setActiveTab={handleTabClick} />
-        <SidebarItem icon={<User size={20} />} text="Candidate" expanded={expanded} activeTab={activeTab} setActiveTab={handleTabClick} />
-        <SidebarItem icon={<FaHandshakeSimple size={20} />} text="Cashcow" expanded={expanded} activeTab={activeTab} setActiveTab={handleTabClick} />
-        <SidebarItem icon={<DollarSign size={20} />} text="Invoice" expanded={expanded} activeTab={activeTab} setActiveTab={handleTabClick} />
-        <SidebarItem icon={<Mail size={20} />} text="Mailing" expanded={expanded} activeTab={activeTab} setActiveTab={handleTabClick} />
-        <SidebarItem icon={<TbZoomScan size={20} />} text="Job Scraper" expanded={expanded} activeTab={activeTab} setActiveTab={handleTabClick} />
+        <SidebarItem to="/dashboard" icon={<HiOutlineViewGrid size={20} />} text="Dashboard" expanded={expanded} />
+        <SidebarItem to="/general" icon={<BsCalculator size={20} />} text="General" expanded={expanded} />
+        <SidebarItem to="/agreementPrice" icon={<Calendar size={20} />} text="Agreement Price" expanded={expanded} />
+        <SidebarItem to="/vacancy" icon={<IoMdBriefcase size={20} />} text="Vacancy" expanded={expanded} />
+        <SidebarItem to="/candidate" icon={<User size={20} />} text="Candidate" expanded={expanded} />
+        <SidebarItem to="/cashcow" icon={<FaHandshakeSimple size={20} />} text="Cashcow" expanded={expanded} />
+        <SidebarItem to="/invoice" icon={<DollarSign size={20} />} text="Invoice" expanded={expanded} />
+        <SidebarItem to="/mailing" icon={<Mail size={20} />} text="Mailing" expanded={expanded} />
+        <SidebarItem to="/job-scraper" icon={<TbZoomScan size={20} />} text="Job Scraper" expanded={expanded} />
       </nav>
 
       {/* Divider Line before Settings */}
       <div className="w-full border-b border-gray-500 my-4"></div>
 
       {/* Settings Button */}
-      <SidebarItem icon={<Settings size={20} />} text="Settings" expanded={expanded} activeTab={activeTab} setActiveTab={handleTabClick} />
+      <SidebarItem to="/settings" icon={<Settings size={20} />} text="Settings" expanded={expanded} />
     </div>
   );
 };
 
-const SidebarItem = ({ icon, text, expanded, activeTab, setActiveTab }) => {
-  const isActive = activeTab === text;
-
+const SidebarItem = ({ to, icon, text, expanded }) => {
   return (
-    <Button
-      variant="ghost"
-      className={`flex items-center w-full text-white transition-all duration-300 ${
+    <NavLink to={to} className={({ isActive }) =>
+      `flex items-center w-full text-white transition-all duration-300 ${
         isActive ? "bg-[#4E5976] px-4 py-4 rounded-md" : "p-2"
-      } ${expanded ? "justify-start pl-4" : "justify-center"}`}
-      onClick={() => setActiveTab(text)}
-    >
+      } ${expanded ? "justify-start pl-4" : "justify-center"}`
+    }>
       {icon}
       {expanded && <span className="ml-3">{text}</span>}
-    </Button>
+    </NavLink>
   );
 };

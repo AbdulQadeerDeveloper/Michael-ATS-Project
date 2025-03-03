@@ -8,7 +8,7 @@ import CompanyCards from "./allCards";
 import CompanyTable from "../vacancies";
 
 
-const Dashboard = () => {
+const DashboardA = () => {
   return (
     <div className="flex bg-[#F4F7FE]">
       <Sidebar />
@@ -23,4 +23,4 @@ const Dashboard = () => {
     </div>
   );
 };
-export default Dashboard;
+export default DashboardA;
