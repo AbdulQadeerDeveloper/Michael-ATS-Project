@@ -1,39 +1,22 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const locations = [
-  {
-    title: "Headquarter",
-    address: ["Amstel 1", "1011 PN Amsterdam"],
-  },
-  {
-    title: "Location Rotterdam",
-    address: ["Stania 35"],
-  },
-];
 
 export default function Location() {
   return (
-    <Card className="w-[500px] h-[155px] rounded-xl border overflow-y-auto">
-      <CardHeader>
-        <CardTitle className="text-lg">Location</CardTitle>
-      </CardHeader>
-      <CardContent>
-        {locations.map((location, index) => (
-          <div key={index} className="mb-4">
-            <h3 className="font-semibold">{location.title}</h3>
-            {location.address.map((line, i) => (
-              <p
-                key={i}
-                className={`text-sm ${
-                  i === 0 ? "text-foreground" : "text-muted-foreground"
-                }`}
-              >
-                {line}
-              </p>
-            ))}
+    <Card className="mt-5 w-full p-4 rounded-xl border h-auto xl:h-[200px] bg-[white]">
+      <h2 className="text-lg font-semibold font-[Montserrat]">Location</h2>
+      <div className="space-y-2">
+        {[
+          { label: "Headquarter", value: "" },
+          { label: "Address", value: "Amstel 1\n1011 PN Amsterdam" },
+          { label: "Location Rotterdam", value: "Stania 35" },
+        ].map((item, index) => (
+          <div key={index} className="flex justify-between">
+            <span className="text-sm text-muted-foreground font-[Montserrat]">{item.label}</span>
+            <span className="text-sm font-medium font-[Montserrat]">{item.value}</span>
           </div>
         ))}
-      </CardContent>
+      </div>
     </Card>
   );
 }

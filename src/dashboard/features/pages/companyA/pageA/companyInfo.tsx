@@ -3,47 +3,34 @@ import { ExternalLink } from "lucide-react";
 
 export default function CompanyInfo() {
   return (
-    <Card className="w-[504px] rounded-xl border">
-      <CardHeader>
-        <CardTitle className="text-lg">Company Information</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-2 gap-y-4 text-sm">
-          <div className="text-muted-foreground">Company Name</div>
-          <div className="font-medium">Company A</div>
-
-          <div className="text-muted-foreground">Parent Company Name</div>
-          <div className="flex items-center gap-1">
-            Company Z
-            <ExternalLink className="w-4 h-4 text-[#D40B52] cursor-pointer" />
-          </div>
-
-          <div className="text-muted-foreground">Status</div>
-          <div className="font-medium">Relation</div>
-
-          <div className="text-muted-foreground">Sector</div>
-          <div className="font-medium">Manufacturing</div>
-
-          <div className="text-muted-foreground">Sub Sector</div>
-          <div className="font-medium">Installation Otomotive</div>
-
-          <div className="text-muted-foreground">Phone Number</div>
-          <div className="font-medium">0123 456 789</div>
-
-          <div className="text-muted-foreground">Email</div>
-          <div className="font-medium">company@mail.com</div>
-
-          <div className="text-muted-foreground">Website</div>
-          <div className="font-medium">
-            <a href="https://company.com" target="_blank" className="text-blue-600 hover:underline">
-              https://company.com
-            </a>
-          </div>
-
-          <div className="text-muted-foreground">Owner</div>
-          <div className="font-medium">John Doe</div>
+    <div>
+      <Card className="h-auto xl:h-[352px] w-full p-6 space-y-2 bg-[white]">
+        <h2 className="text-lg font-semibold font-[Montserrat]">Company Information</h2>
+        <div className="space-y-2">
+          {[
+            { label: "Company Name", value: "Company A" },
+            { label: "Parent Company Name", value: "Company Z", link: true },
+            { label: "Status", value: "Relation" },
+            { label: "Sector", value: "Manufacturing" },
+            { label: "Sub Sector", value: "Installation Otomotive" },
+            { label: "Phone Number", value: "0123 456 789" },
+            { label: "Email", value: "company@mail.com" },
+            { label: "Website", value: "https://company.com" },
+            { label: "Owner", value: "John Doe" },
+          ].map((item, index) => (
+            <div key={index} className="flex justify-between">
+              <span className="text-sm text-[#71747D] font-[Montserrat]">{item.label}</span>
+              {item.link ? (
+                <a href="#" className="text-sm font-medium text-primary flex items-center gap-1 text-[#D40B52] font-[Montserrat]">
+                  {item.value} <ExternalLink size={16} className="text-[#D40B52]" />
+                </a>
+              ) : (
+                <span className="text-sm font-medium font-[Montserrat]">{item.value}</span>
+              )}
+            </div>
+          ))}
         </div>
-      </CardContent>
-    </Card>
+      </Card>
+    </div>
   );
 }

@@ -2,22 +2,22 @@
 
 import { Topbar } from "@/dashboard/features/dashboard/header/header";
 import { Sidebar } from "@/dashboard/features/dashboard/sidebar/sidebar";
-
 import CompanyCard from "../companyCard";
-import MenuBar from "../menubar";
 import SentEmail from "../sentEmail";
-import CompanyInfo from "../companyInfo";
+import CompanyCards from "./allCards";
+import CompanyTable from "../vacancies";
+
 
 const Dashboard = () => {
   return (
-    <div className="flex">
+    <div className="flex bg-[#F4F7FE]">
       <Sidebar />
       <div className="flex-1">
         <Topbar />
         <CompanyCard/>
-        <MenuBar/>
         <SentEmail/>
-        <CompanyInfo/>
+        <CompanyCards/>
+        <CompanyTable/>
       
       </div>
     </div>

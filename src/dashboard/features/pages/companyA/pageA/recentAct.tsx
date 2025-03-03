@@ -1,49 +1,22 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const activities = [
-  {
-    date: "Today",
-    logs: [
-      {
-        text: "John Doe change the status into Relation",
-        time: "12:48",
-      },
-    ],
-  },
-  {
-    date: "Yesterday",
-    logs: [
-      {
-        text: "John Doe change the status into Ex-Client because contract not renewed",
-        time: "21:43",
-      },
-      {
-        text: "John Doe created the company",
-        time: "12:48",
-      },
-    ],
-  },
-];
-
 export default function RecentActivity() {
   return (
-    <Card className="w-[360px] h-[577px] rounded-xl border overflow-y-auto">
-      <CardHeader>
-        <CardTitle className="text-lg">Recent Activity</CardTitle>
-      </CardHeader>
-      <CardContent>
-        {activities.map((activity, index) => (
-          <div key={index} className="mb-6">
-            <h3 className="font-semibold mb-2">{activity.date}</h3>
-            {activity.logs.map((log, i) => (
-              <div key={i} className="mb-4">
-                <p className="text-sm">{log.text}</p>
-                <p className="text-xs text-muted-foreground">{log.time}</p>
+    <Card className="h-auto xl:h-[577px] rounded-xl border p-4 overflow-y-auto bg-[white]">
+      <h2 className="text-lg font-semibold font-[Montserrat]">Recent Activity</h2>
+      <div className="space-y-4">
+        {["Today", "Yesterday"].map((day, idx) => (
+          <div key={idx}>
+            <h3 className="text-sm font-medium mb-2 font-[Montserrat]">{day}</h3>
+            {["John Doe change the status into Relation"].map((activity, i) => (
+              <div key={i} className="space-y-1">
+                <p className="text-sm font-[Montserrat]">{activity}</p>
+                <span className="block text-xs text-#71747D font-[Montserrat]">12:48</span>
               </div>
             ))}
           </div>
         ))}
-      </CardContent>
+      </div>
     </Card>
   );
 }

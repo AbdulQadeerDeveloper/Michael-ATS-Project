@@ -1,10 +1,11 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { X, Rocket } from "lucide-react";
+import { Mail, Phone, ExternalLink } from "lucide-react";
 
 export default function SentEmail() {
   return (
-    <Alert className="bg-[#FDE7EE] text-[#D40B52] border-[#D40B52] min-h-[64px] max-h-[64px] rounded-lg flex items-center justify-between gap-4 px-4 py-3">
+    <Alert className="bg-[#FDE7EE] text-[#D40B52] border-[#D40B52] min-h-[64px] max-h-[64px] rounded-lg flex items-center justify-between gap-4 px-4 py-3 w-[97%] m-auto">
       <div className="flex items-center gap-4">
         <Rocket className="w-5 h-5" />
         <div>

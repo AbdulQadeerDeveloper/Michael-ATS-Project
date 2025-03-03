@@ -20,8 +20,8 @@ export const Sidebar = () => {
 
   return (
     <div
-      className={`bg-[#2B3759] text-white flex flex-col transition-all duration-300`}
-      style={{ width: expanded ? "250px" : "56px"}}
+      className={`bg-[#2B3759] text-white flex flex-col transition-all duration-300 h-auto`}
+      style={{ width: expanded ? "250px" : "56px" }}
       onMouseEnter={() => setExpanded(true)}
       onMouseLeave={() => setExpanded(false)}
     >
@@ -56,7 +56,7 @@ export const Sidebar = () => {
       <div className="w-full border-b border-gray-500 my-4"></div>
 
       {/* Settings Button */}
-      <SidebarItem icon={<Settings size={20} />} text="Settings" expanded={expanded} activeTab={activeTab} setActiveTab={handleTabClick}  />
+      <SidebarItem icon={<Settings size={20} />} text="Settings" expanded={expanded} activeTab={activeTab} setActiveTab={handleTabClick} />
     </div>
   );
 };
