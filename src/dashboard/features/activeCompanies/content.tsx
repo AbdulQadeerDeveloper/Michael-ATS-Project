@@ -8,8 +8,9 @@ import { CiViewColumn } from 'react-icons/ci';
 import { IoFilterSharp } from 'react-icons/io5';
 import companyLogo from "../../../assets/Icon.png"
 import { BiSortAlt2 } from "react-icons/bi";
-import PaginationDesign from './header/paginationDesign.js';
-
+import PaginationDesign from './paginationDesign';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 const data = Array(10).fill({
   company: 'Company A',
   status: 'Key Account',
@@ -22,15 +23,46 @@ const data = Array(10).fill({
 
 export default function CompanyTable() {
   const headers = ['Companies Name', 'Status', 'Primary Contact', 'Sector', 'City', 'Phone Number', 'Owner'];
+  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState('active');
 
+  const handleNavigation = (path) => {
+    navigate(path);
+    // Update active tab state based on path
+    setActiveTab(path.split('/')[1]);
+  };
   return (
     <div className="m-[30px]">
       <Card className="p-4 shadow-md border border-gray-300 rounded-lg">
         <div className="mb-4 flex justify-between items-center flex-wrap gap-3">
-          <div className="flex bg-gray-50 rounded-lg overflow-hidden">
-            <Button variant="ghost" className="bg-white text-gray-700 font-semibold px-4 py-2">Active Companies</Button>
-            <Button variant="ghost" className="text-gray-600 px-4 py-2">Leads & Prospects</Button>
-            <Button variant="ghost" className="text-gray-600 px-4 py-2">Archived</Button>
+          <div className="flex bg-[#F4F7FE] rounded-lg overflow-hidden">
+            <Button
+              variant="ghost"
+              className={`px-4 py-2 font-semibold ${activeTab === 'activeCompanies'
+                ? 'bg-white text-gray-700 border-3 border-[#F4F7FE]'
+                : 'text-gray-600 hover:bg-white hover:border-3 hover:border-[#F4F7FE]'}`}
+              onClick={() => handleNavigation('/activeCompanies')}
+            >
+              Active Companies
+            </Button>
+            <Button
+              variant="ghost"
+              className={`px-4 py-2 ${activeTab === 'leadsProspects'
+                ? 'bg-white text-gray-700 font-semibold border-3 border-[#F4F7FE]'
+                : 'text-gray-600 hover:bg-white hover:border-3 hover:border-[#F4F7FE]'}`}
+              onClick={() => handleNavigation('/leadsProspects')}
+            >
+              Leads & Prospects
+            </Button>
+            <Button
+              variant="ghost"
+              className={`px-4 py-2 ${activeTab === 'archived'
+                ? 'bg-white text-gray-700 font-semibold border-3 border-[#F4F7FE]'
+                : 'text-gray-600 hover:bg-white hover:border-3 hover:border-[#F4F7FE]'}`}
+              onClick={() => handleNavigation('/archived')}
+            >
+              Archived
+            </Button>
           </div>
 
           <div className="flex gap-2">
@@ -44,7 +76,7 @@ export default function CompanyTable() {
                   <CiViewColumn className="text-gray-600" /> Columns <ChevronDown size={16} />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent className="bg-[#fff]">
                 {headers.map((header, index) => (
                   <DropdownMenuItem key={index}>{header}</DropdownMenuItem>
                 ))}
@@ -84,7 +116,7 @@ export default function CompanyTable() {
 
           </Table>
 
-          <PaginationDesign/>
+          <PaginationDesign />
         </CardContent>
       </Card>
     </div>

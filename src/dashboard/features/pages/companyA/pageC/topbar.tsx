@@ -2,8 +2,8 @@
 import { Input } from "@/components/ui/input";
 import { Bell } from "lucide-react";
 import { IoMdLogOut } from "react-icons/io";
-import companyLogo from "../../../../assets/Hofstead-logo-zwart-1 1.png";
-import buttonIcon from "../../../../assets/Buttons (1).png";
+import companyLogo from "../../../../../assets/Hofstead-logo-zwart-1 1.png";
+import buttonIcon from "../../../../../assets/Buttons (1).png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutMicrosoft } from "@/dashboard/auth/redux/actions/actionApis";
@@ -14,7 +14,8 @@ export const Topbar = () => {
   const dispatch = useDispatch();
   
   // Get user from Redux store
-  const { user } = useSelector((state: any) => state.auth);
+  const { user } = useSelector((state: any) => state.auth.auth);
+  console.log(user);
 
   const handleLogout = () => {
     dispatch(logoutMicrosoft()as any);

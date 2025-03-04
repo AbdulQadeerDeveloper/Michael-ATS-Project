@@ -1,22 +1,24 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Calendar, Briefcase, User, DollarSign, Mail, Settings } from "lucide-react";
+import { Calendar, Briefcase, User, DollarSign, Mail, Settings, LucideContact } from "lucide-react";
 import { BsCalculator } from "react-icons/bs";
 import { IoMdBriefcase } from "react-icons/io";
 import { HiOutlineViewGrid } from "react-icons/hi";
 import { FaHandshakeSimple } from "react-icons/fa6";
+import { FaCalendar } from "react-icons/fa6";
 import { TbZoomScan } from "react-icons/tb";
-import logo from "../../../../assets/Logo.png";
-import companyLogo from "../../../../assets/Hofstead-logo-zwart-1 1.png";
+import { LuContact } from "react-icons/lu";
+import logo from "../../../assets/Logo.png";
+import companyLogo from "../../../assets/Hofstead-logo-zwart-1 1.png";
 
 export const Sidebar = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
     <div
-      className={`bg-[#2B3759] text-white flex flex-col transition-all duration-300 h-auto`}
-      style={{ width: expanded ? "250px" : "56px" }}
+      className={`bg-[#2B3759] text-white flex flex-col transition-all duration-300 h-auto ${expanded ? "w-[250px]" : "w-[40px]"}`}
+      style={{ width: expanded ? "266px" : "56px" }}
       onMouseEnter={() => setExpanded(true)}
       onMouseLeave={() => setExpanded(false)}
     >
@@ -37,13 +39,15 @@ export const Sidebar = () => {
       {/* Navigation */}
       <nav className="flex flex-col space-y-1 flex-grow w-full">
         <SidebarItem to="/dashboard" icon={<HiOutlineViewGrid size={20} />} text="Dashboard" expanded={expanded} />
-        <SidebarItem to="/general" icon={<BsCalculator size={20} />} text="General" expanded={expanded} />
-        <SidebarItem to="/agreementPrice" icon={<Calendar size={20} />} text="Agreement Price" expanded={expanded} />
+        <SidebarItem to="/activeCompanies" icon={<BsCalculator size={20} />} text="Company" expanded={expanded} />
+        <SidebarItem to="/contact" icon={<LuContact size={20} />} text="Contact" expanded={expanded} />
+
         <SidebarItem to="/vacancy" icon={<IoMdBriefcase size={20} />} text="Vacancy" expanded={expanded} />
         <SidebarItem to="/candidate" icon={<User size={20} />} text="Candidate" expanded={expanded} />
         <SidebarItem to="/cashcow" icon={<FaHandshakeSimple size={20} />} text="Cashcow" expanded={expanded} />
         <SidebarItem to="/invoice" icon={<DollarSign size={20} />} text="Invoice" expanded={expanded} />
         <SidebarItem to="/mailing" icon={<Mail size={20} />} text="Mailing" expanded={expanded} />
+        <SidebarItem to="/calendar" icon={<FaCalendar size={20} />} text="Calendar" expanded={expanded} />
         <SidebarItem to="/job-scraper" icon={<TbZoomScan size={20} />} text="Job Scraper" expanded={expanded} />
       </nav>
 

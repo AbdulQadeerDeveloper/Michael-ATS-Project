@@ -53,3 +53,22 @@ svg.lucide.lucide-rocket.w-5.h-5 {
   margin-top: 0px;
   margin-bottom: 10px;
 }
+
+a.flex.items-center.w-full.text-white.transition-all.duration-300.bg-\[\#4E5976\].px-4.py-4.rounded-md.justify-center {
+  width: 48px;
+  height: 40px;
+  margin-left: 4px;
+}
+a.flex.items-center.w-full.text-white.transition-all.duration-300.p-2.justify-start.pl-4 {
+  margin-left: 8px;
+}
+.hover\:bg-white:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  border: 2px solid #F4F7FE;
+}
+a.flex.items-center.w-full.text-white.transition-all.duration-300.bg-\[\#4E5976\].px-4.py-4.rounded-md.justify-start.pl-4 {
+  width: 234px;
+  height: 36px;
+  margin-left: 8px;
+}

@@ -1,8 +1,8 @@
 // Dashboard.jsx
 
-import { Topbar } from "@/dashboard/features/dashboard/header/header";
-import { Sidebar } from "@/dashboard/features/dashboard/sidebar/sidebar";
 import CompanyCard from "../../pageA/companyCard";
+import { Sidebar } from "../cardsComapny/sidebar";
+import { Topbar } from "../cardsComapny/topbar";
 import MainPageB from "./card";
 
 const DashboardB = () => {

@@ -1,11 +1,10 @@
 // Dashboard.jsx
-
-import { Topbar } from "@/dashboard/features/dashboard/header/header";
-import { Sidebar } from "@/dashboard/features/dashboard/sidebar/sidebar";
 import CompanyCard from "../companyCard";
 import SentEmail from "../sentEmail";
 import CompanyCards from "./allCards";
 import CompanyTable from "../vacancies";
+import { Sidebar } from "./sidebar";
+import { Topbar } from "./topbar";
 
 
 const DashboardA = () => {

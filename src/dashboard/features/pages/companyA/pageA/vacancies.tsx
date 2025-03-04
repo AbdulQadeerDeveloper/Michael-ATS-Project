@@ -40,7 +40,7 @@ export default function CompanyTable() {
                   <CiViewColumn className="text-gray-600" /> Columns <ChevronDown size={16} />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-[#F4F7FE]">
+              <DropdownMenuContent className="bg-[#fff]">
                 {headers.map((header, index) => (
                   <DropdownMenuItem key={index} className="hover:bg-white hover:text-black cursor-pointer">{header}</DropdownMenuItem>
                 ))}

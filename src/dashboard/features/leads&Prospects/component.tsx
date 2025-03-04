@@ -1,10 +1,11 @@
 // Dashboard.jsx
+
 import CompanyTable from "./content";
-import { Topbar } from "./header/header";
-import { Sidebar } from "./sidebar/sidebar";
+import { Sidebar } from "./siderbar";
+import { Topbar } from "./topbar";
 
 
-const Dashboard = () => {
+const LeadsProspects = () => {
   return (
     <div className="flex">
       <Sidebar />
@@ -15,4 +16,4 @@ const Dashboard = () => {
     </div>
   );
 };
-export default Dashboard;
+export default LeadsProspects;
