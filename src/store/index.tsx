@@ -1,6 +1,6 @@
 // store.ts
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import authReducer from "../dashboard/auth/redux/reducers/authReducer";
+import authReducer from "../auth/redux/reducers/authReducer";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import type { PersistPartial } from "redux-persist/es/persistReducer";

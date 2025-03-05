@@ -1,9 +1,8 @@
 // Dashboard.jsx
 
+import { Sidebar } from "@/shared/sidebar";
 import CompanyTable from "./content";
-import { Topbar } from "./header";
-import { Sidebar } from "./sidebar";
-
+import { Topbar } from "@/shared/topbar";
 
 const ActiveCompanies = () => {
   return (
